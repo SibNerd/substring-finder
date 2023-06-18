@@ -13,7 +13,7 @@ substring:
 	go build -o substring ./cmd/cli/
 
 build:
-	docker build -t server:latest
+	docker build --pull --rm -f "Dockerfile" -t substringfinder:latest "."
 
 up:
-	docker run -p 8080:8080 server:latest
+	docker run -p 8080:8080 substringfinder:latest
