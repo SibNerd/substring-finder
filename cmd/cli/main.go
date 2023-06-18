@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 )
 
@@ -15,8 +14,6 @@ func main() {
 	flag.StringVar(&url, "url", "http://localhost:8080/api/substring", "url to send your string to")
 
 	flag.Parse()
-
-	fmt.Println(input, url)
 
 	out, err := sendToServer(input, url)
 	if err != nil {
@@ -31,7 +28,6 @@ func sendToServer(input, url string) (string, error) {
 
 	if url != "" {
 		sendURL = fmt.Sprintf("%s?input=%s", url, input)
-		log.Println(sendURL)
 		res, err := http.Get(sendURL)
 		if err != nil {
 			return "", err
@@ -42,8 +38,6 @@ func sendToServer(input, url string) (string, error) {
 			return "", err
 		}
 		res.Body.Close()
-
-		log.Println(string(body))
 
 		return string(body), nil
 	}
