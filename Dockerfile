@@ -13,8 +13,6 @@ COPY ./internal ./internal/
 
 RUN go mod download
 
-RUN go build -o substring ./cmd/cli/
-
 RUN go build -o server ./cmd/server/
 
 EXPOSE 8080

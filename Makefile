@@ -7,7 +7,7 @@ lint:
 	golangci-lint run
 
 run:
-	go run ./cmd/shop-crud-project/main.go
+	go run ./cmd/server/main.go
 
 substring:
 	go build -o substring ./cmd/cli/
